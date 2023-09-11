@@ -17,6 +17,8 @@ namespace WebApi.Model
     public class AppDbContext : DbContext
     {
         public DbSet<Departamento> TblDepartamentos { get; set; }
+        public DbSet<Trabajador> TblTrabajadores { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             /* Cadena de Conexion hacia el servidor de BD */
