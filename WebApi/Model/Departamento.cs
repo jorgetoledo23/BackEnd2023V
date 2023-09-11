@@ -16,7 +16,6 @@ namespace WebApi.Model
     public class Trabajador
     {
         [Key]
-        
         public string Rut { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
@@ -38,6 +37,19 @@ namespace WebApi.Model
 
     }
 
+
+    /* 
+    Agregar Campos considerados necesarios para ambas Class
+    Y Generar claves Foraneas hacia la tabla Trabajador
+     */
+
+    public class CargaFamiliar
+    {
+    }
+
+    public class ContactoEmergencia 
+    { 
+    }
 
 
 }
