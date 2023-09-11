@@ -6,15 +6,20 @@ namespace WebApi.Model
     //Code First 
     public class Departamento
     {
+              
         // Primary Key
+       
         [Key]
         public int CodigoDpto { get; set; }
         public string Nombre { get; set; }
+
+
 
     }
 
     public class Trabajador
     {
+        
         [Key]
         public string Rut { get; set; }
         public string Nombre { get; set; }
@@ -30,10 +35,11 @@ namespace WebApi.Model
 
 
         //Clave Foranea
-
         [ForeignKey("Departamento")]
         public int DptoTrabajador { get; set; }
         public Departamento Departamento { get; set; }
+
+ 
 
     }
 
@@ -45,10 +51,12 @@ namespace WebApi.Model
 
     public class CargaFamiliar
     {
+
     }
 
     public class ContactoEmergencia 
     { 
+
     }
 
 

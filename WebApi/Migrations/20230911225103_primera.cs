@@ -5,10 +5,23 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebApi.Migrations
 {
-    public partial class tblTrabajadores : Migration
+    public partial class primera : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "TblDepartamentos",
+                columns: table => new
+                {
+                    CodigoDpto = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TblDepartamentos", x => x.CodigoDpto);
+                });
+
             migrationBuilder.CreateTable(
                 name: "TblTrabajadores",
                 columns: table => new
@@ -45,6 +58,9 @@ namespace WebApi.Migrations
         {
             migrationBuilder.DropTable(
                 name: "TblTrabajadores");
+
+            migrationBuilder.DropTable(
+                name: "TblDepartamentos");
         }
     }
 }

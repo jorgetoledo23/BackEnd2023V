@@ -18,6 +18,9 @@ namespace WebApi.Model
     {
         public DbSet<Departamento> TblDepartamentos { get; set; }
         public DbSet<Trabajador> TblTrabajadores { get; set; }
+        /*
+        public DbSet<CargaFamiliar> TblCargas { get; set; }
+        public DbSet<ContactoEmergencia> TblContactos { get; set; }*/
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

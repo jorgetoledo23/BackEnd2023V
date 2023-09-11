@@ -12,8 +12,8 @@ using WebApi.Model;
 namespace WebApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230911221528_tblTrabajadores")]
-    partial class tblTrabajadores
+    [Migration("20230911225103_primera")]
+    partial class primera
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
