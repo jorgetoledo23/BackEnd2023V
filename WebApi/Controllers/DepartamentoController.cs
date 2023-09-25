@@ -8,11 +8,11 @@ namespace WebApi.Controllers
     {
         private readonly AppDbContext _context; //Field
 
+        //Constructor
         public DepartamentoController(AppDbContext context)
         {
             _context = context;
         }
-
 
         [Route("addDpto")]
         [HttpPost]
