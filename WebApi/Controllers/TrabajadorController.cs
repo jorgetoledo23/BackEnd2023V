@@ -16,6 +16,9 @@ namespace WebApi.Controllers
             _context = context;
         }
 
+        //TODO: Peticion para buscar un trabajador por su Rut
+        //TODO: Peticion para buscar trabajadores por año de nacimiento
+
         [HttpPost] //Tipo Peticion HTTP => GET Lectura
         [Route("addtrabajador")]
         public async Task<IActionResult> addT(TrabajadorDTO T)
