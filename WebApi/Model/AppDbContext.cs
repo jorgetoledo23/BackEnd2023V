@@ -3,10 +3,6 @@
 namespace WebApi.Model
 {
 
-
-
-
-
     /*
      
     Clase EF Core para configurar la conexion a la BD
@@ -18,6 +14,8 @@ namespace WebApi.Model
     {
         public DbSet<Departamento> TblDepartamentos { get; set; }
         public DbSet<Trabajador> TblTrabajadores { get; set; }
+        public DbSet<ContactoEmergencia> TblContactos { get; set; }
+        public DbSet<CargaFamiliar> TblCargas { get; set; }
         /*
         public DbSet<CargaFamiliar> TblCargas { get; set; }
         public DbSet<ContactoEmergencia> TblContactos { get; set; }*/
