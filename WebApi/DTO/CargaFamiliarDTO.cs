@@ -1,10 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using WebApi.Model;
 
 namespace WebApi.DTO
 {
-    public class TrabajadorDTO
+    public class CargaFamiliarDTO
     {
         public string Rut { get; set; }
         public string Nombre { get; set; }
@@ -17,7 +16,6 @@ namespace WebApi.DTO
 
         [DataType(DataType.Date)]
         public DateTime FechaNacimiento { get; set; }
-        public int DptoTrabajador { get; set; }
-        public Departamento Departamento { get; set; }
+        public string RutTrabajador { get; set; }
     }
 }

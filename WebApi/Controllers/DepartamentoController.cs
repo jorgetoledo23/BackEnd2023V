@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebApi.Model;
 
 namespace WebApi.Controllers
@@ -56,6 +57,32 @@ namespace WebApi.Controllers
             return Ok(_context.TblDepartamentos.Where(x => x.Nombre.Contains(Filter)).ToList());
         }
 
+        [HttpDelete]
+        [Route("delDpto")]
+        public async Task<IActionResult> delDpto(int id)
+        {
+            var dpto = await _context.TblDepartamentos
+                .Where(d => d.CodigoDpto.Equals(id)).FirstOrDefaultAsync();
+
+            if(dpto == null)
+            {
+                return NotFound();
+            }
+            _context.Remove(dpto);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
+
+        [HttpPut]
+        [Route("uptDpto")]
+        public async Task<IActionResult> uptDpto(Departamento dpto)
+        {
+            if (dpto == null) return NotFound();
+            _context.Update(dpto);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
 
     }
 }
