@@ -16,6 +16,8 @@ namespace WebApi.Model
         public DbSet<Trabajador> TblTrabajadores { get; set; }
         public DbSet<ContactoEmergencia> TblContactos { get; set; }
         public DbSet<CargaFamiliar> TblCargas { get; set; }
+        public DbSet<Usuario> TblUsuarios { get; set; }
+
         /*
         public DbSet<CargaFamiliar> TblCargas { get; set; }
         public DbSet<ContactoEmergencia> TblContactos { get; set; }*/
