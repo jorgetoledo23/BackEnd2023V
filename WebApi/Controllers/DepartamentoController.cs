@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Model;
 
 namespace WebApi.Controllers
 {
     [Route("api/v1/controller")]
+    [Authorize(Roles = "Administrador")]
     public class DepartamentoController : ControllerBase
     {
         private readonly AppDbContext _context; //Field
