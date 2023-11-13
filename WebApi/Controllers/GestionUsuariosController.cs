@@ -27,7 +27,7 @@ namespace WebApi.Controllers
         [HttpPost]
         [Route("LoginIn")]
         [AllowAnonymous]
-        public async Task<IActionResult> LoginIn(string correo, string password){
+        public async Task<IActionResult> LoginIn(string correo, string contra){
             var usuarios = await _context.TblUsuarios.ToListAsync();
             if(usuarios.Count == 0)
             {
@@ -53,7 +53,7 @@ namespace WebApi.Controllers
 
             if (existe.isActive == false) return BadRequest("Usuario Bloqueado");
 
-            if (VerifyPasswordHash(password, existe.PasswordSalt, existe.PasswordHash));
+            if (VerifyPasswordHash(contra, existe.PasswordSalt, existe.PasswordHash))
             {
                 var Token = CreateToken(existe);
                 return Ok(Token);
@@ -142,14 +142,30 @@ namespace WebApi.Controllers
             //al usuario que quiere cambiar la password es SuperAdministrador
             var existe = await _context.TblUsuarios
                 .FirstOrDefaultAsync(u => u.Correo == correo);
+
+            
+
             if (existe == null) return BadRequest("Usuario No Encontrado!");
-            if (existe.Rol == "SuperAdministrador") return BadRequest("No se puede cambiar password a un SuperAdministrador!");
+
             CreatePasswordHash(newpass, out byte[] hash, out byte[] salt);
             existe.PasswordHash = hash;
             existe.PasswordSalt = salt;
-            _context.Update(existe);
-            await _context.SaveChangesAsync();
-            return Ok();
+
+            if (Rol.Equals("SuperAdministrador"))
+            {
+                _context.Update(existe);
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
+            else
+            {
+                if(existe.Rol == "SuperAdministrador") return BadRequest("No se puede cambiar password a un SuperAdministrador!");
+                _context.Update(existe);
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
+  
+            
         }
 
         [HttpPut]
