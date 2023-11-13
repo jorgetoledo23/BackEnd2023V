@@ -143,7 +143,7 @@ namespace WebApi.Controllers
             var existe = await _context.TblUsuarios
                 .FirstOrDefaultAsync(u => u.Correo == correo);
 
-            
+            var Rol = User.FindFirstValue(ClaimTypes.Role); //Obtenemos el Rol del usuario logueado
 
             if (existe == null) return BadRequest("Usuario No Encontrado!");
 
