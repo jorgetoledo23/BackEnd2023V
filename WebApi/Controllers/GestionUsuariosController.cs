@@ -145,6 +145,8 @@ namespace WebApi.Controllers
 
             var Rol = User.FindFirstValue(ClaimTypes.Role); //Obtenemos el Rol del usuario logueado
 
+
+
             if (existe == null) return BadRequest("Usuario No Encontrado!");
 
             CreatePasswordHash(newpass, out byte[] hash, out byte[] salt);
