@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
 
 using WebApp.Models;
@@ -16,17 +17,8 @@ namespace WebApp.Controllers
 
         public IActionResult Index()
         {
-            
-            var users = db.TblUsuarios.ToList();
-            var dptos = db.TblDepartamentos.ToList();
-
-            var indexViewModel = new IndexViewModel()
-            {
-                ListaUsuarios = users,
-                ListaDepartamento = dptos
-            };
-
-            return View(indexViewModel);
+            ViewData["Dptos"] = new SelectList(db.TblDepartamentos.ToList(), "CodigoDpto", "Nombre");
+            return View();
         }
 
         public IActionResult Privacy()

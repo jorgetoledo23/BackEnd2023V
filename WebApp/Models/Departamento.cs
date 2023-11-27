@@ -9,6 +9,8 @@ namespace WebApp.Models
         // Primary Key
         [Key]
         public int CodigoDpto { get; set; }
+
+        [StringLength(10)]
         public string Nombre { get; set; }
 
         //[NotMapped]
