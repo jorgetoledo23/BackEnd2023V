@@ -28,7 +28,8 @@
             <td>
                 <a asp-action="Edit" asp-route-Cod="@item.CodigoDpto">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.CodigoDpto">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CodigoDpto">Delete</a>
+                <a onclick="return confirm('¿Estas Seguro?')"
+                    asp-action="Eliminar" asp-route-Cod="@item.CodigoDpto">Delete</a>
             </td>
         </tr>
 }
